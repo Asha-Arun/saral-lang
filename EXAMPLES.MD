@@ -5,7 +5,7 @@
 # ── Welcome ─────────────────────────────────
 show "╔══════════════════════════════════════╗"
 show "║   🔬  SARAL SCIENTIFIC CALCULATOR   ║"
-show "║   Written entirely in Saral v2.0    ║"
+show "║   Written entirely in Saral v1.0.0    ║"
 show "╚══════════════════════════════════════╝"
 show blank
 
