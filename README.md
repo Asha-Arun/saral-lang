@@ -1,12 +1,10 @@
-# saral-lang
-Saral Lang -A beginner-friendly, English-like programming language. Developed by Asha V S, Kerala, India
-
 # Saral Lang v 1.0.0
 
 ### Simple Programming for Everyone
 
 *The world's first beginner-friendly, AI-powered, secure-by-design programming language*
 
+Saral Lang -A beginner-friendly, English-like programming language. Developed by Asha V S, Kerala, India
 ---
 
 **Write code the way you think. No symbols. No jargon. Just plain English.**
