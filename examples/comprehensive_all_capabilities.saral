@@ -1,0 +1,499 @@
+# ═══════════════════════════════════════════════════════════════════
+# SARAL LANG — COMPREHENSIVE ALL-CAPABILITIES TEST PROGRAM
+# v1.0.1 Kitchen Sink
+# Exercises as many language features as possible in one non-interactive run.
+# Uses only proven working syntax from tests + v4.0 pipeline.
+# ═══════════════════════════════════════════════════════════════════
+
+show "═══════════════════════════════════════════════════════════════"
+show "  SARAL COMPREHENSIVE ALL-FEATURES TEST — KITCHEN SINK"
+show "═══════════════════════════════════════════════════════════════"
+show blank
+
+# ─────────────────────────────────────────────────────────────────
+# 1. VARIABLES, INCREASE/DECREASE, MATH BASICS + FORMATTING
+# ─────────────────────────────────────────────────────────────────
+show "── 1. VARIABLES + MATH + FORMATTING ──────────────────────────"
+
+store 100 in price
+increase price by 25
+decrease price by 10
+show "Price after inc/dec: {price}"
+
+store 10 in apples
+store 5 in oranges
+store apples + oranges in total
+show "Total fruits: {total}"
+
+store "Hello {total} items!" in fmt
+show fmt
+
+# ─────────────────────────────────────────────────────────────────
+# 2. ALL MATH FUNCTIONS (degrees for trig)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 2. MATH FUNCTIONS (sqrt, round, floor, ceiling, abs, random, power, square, cube, trig, log, %) ──"
+
+store sqrt of 144 in sq
+show "sqrt(144) = {sq}"
+
+store round of 3.14159 to 2 places in pi2
+show "pi rounded 2 places: {pi2}"
+
+store floor of 4.9 in fl
+store ceiling of 4.1 in cl
+show "floor 4.9={fl} ceiling 4.1={cl}"
+
+store absolute of -42 in ab
+show "abs(-42) = {ab}"
+
+store random number from 1 to 6 in dice
+show "random 1-6: {dice}"
+
+store 2 ^ 10 in pwr
+show "2^10 = {pwr}"
+
+store (-4) ^ 2 in negpow
+show "(-4)^2 = {negpow} (negative base power)"
+
+store 23 % 7 in mod
+show "23 % 7 = {mod}"
+
+store square of 11 in sqr
+store cube of 4 in cub
+show "square(11)={sqr} cube(4)={cub}"
+
+store sin of 90 in s90
+store cos of 0 in c0
+store tan of 45 in t45
+store round of s90 to 2 places in s90r
+show "sin90={s90r} cos0={c0} tan45={t45}"
+
+store log of 1000 in lg
+show "log(1000) = {lg}"
+
+# ─────────────────────────────────────────────────────────────────
+# 3. CONDITIONS (if / otherwise if / otherwise / done)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 3. CONDITIONS ─────────────────────────────────────────────"
+
+store 82 in score
+if score >= 90
+    show "Grade: A (excellent)"
+otherwise if score >= 80
+    show "Grade: B (good)"
+otherwise if score >= 60
+    show "Grade: C (pass)"
+otherwise
+    show "Grade: F (fail)"
+done
+
+# ─────────────────────────────────────────────────────────────────
+# 4. ALL LOOP TYPES
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 4. LOOPS (repeat, count from, for each, while) ─────────────"
+
+show "Repeat 3 times:"
+repeat 3 times
+    show "  hello from repeat"
+done
+
+show "Count from 1 to 5:"
+count from 1 to 5 as n
+    show "  count: {n}"
+done
+
+make list called colors
+add "red" to colors
+add "green" to colors
+add "blue" to colors
+show "For each over list:"
+for each col in colors
+    show "  color: {col}"
+done
+
+store 0 in counter
+store "yes" in looping
+while looping = "yes"
+    increase counter by 1
+    if counter > 2
+        store "no" in looping
+    done
+done
+show "While loop ran {counter} times"
+
+# ─────────────────────────────────────────────────────────────────
+# 5. FUNCTIONS: define, defaults, global, multiple return, call styles
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 5. FUNCTIONS (defaults, global, multiple return, call) ─────"
+
+store 0 in global_counter
+
+define bump_counter
+    global global_counter
+    increase global_counter by 1
+end
+
+define greet_person using name, title = "Ms"
+    show "Hello {title} {name}!"
+end
+
+define min_and_max using nums
+    store minimum of nums in lo
+    store maximum of nums in hi
+    return lo, hi
+end
+
+call bump_counter
+call bump_counter
+show "Global counter after bumps: {global_counter}"
+
+call greet_person with "Asha"
+call greet_person with "Arun", "Mr"
+
+make list called testnums
+add 17 to testnums
+add 99 to testnums
+add 3 to testnums
+add 42 to testnums
+store multiple result of min_and_max with testnums in lowest, highest
+show "min={lowest} max={highest} from list"
+
+# ─────────────────────────────────────────────────────────────────
+# 6. LISTS — full suite
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 6. LISTS (make, add, sort, reverse, slice, length, sum/avg/min/max, unique) ──"
+
+make list called nums
+add 42 to nums
+add 7 to nums
+add 19 to nums
+add 7 to nums
+add 100 to nums
+add 3 to nums
+
+show "Original: {nums}"
+store length of nums in nlen
+show "Length: {nlen}"
+
+store sum of nums in total_sum
+store average of nums in avgv
+store maximum of nums in mx
+store minimum of nums in mn
+show "sum={total_sum} avg={avgv} min={mn} max={mx}"
+
+sort nums
+show "Sorted: {nums}"
+
+sort nums in reverse
+show "Reverse sorted: {nums}"
+
+store item 2 of nums in second
+show "item 2 (0-based? shown): {second}"
+
+store first 3 of nums in head
+show "first 3: {head}"
+
+store last 2 of nums in tail
+show "last 2: {tail}"
+
+make unique nums and store in uniq
+show "unique: {uniq}"
+
+# ─────────────────────────────────────────────────────────────────
+# 7. DICTIONARIES + DEEP + SET/GET
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 7. DICTIONARIES (make, set, value of, deep value) ─────────"
+
+make dictionary called person
+set "name" of person to "Asha"
+set "city" of person to "Irinjalakuda"
+set "state" of person to "Kerala"
+
+store value of "name" in person in pname
+show "Person name: {pname}"
+
+make dictionary called address
+set "street" of address to "Main Road"
+set "city" of address to "Irinjalakuda"
+set "address" of person to address
+
+store deep value of "address" then "city" in person in deepcity
+show "Deep city: {deepcity}"
+
+# ─────────────────────────────────────────────────────────────────
+# 8. STRINGS — transforms, split/join, replace, length, pad
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 8. STRINGS (upper/lower/trim/reverse/length/split/join/replace/pad) ──"
+
+store "  Hello Saral World  " in msg
+store trimmed msg in tmsg
+store uppercase of tmsg in big
+store lowercase of big in small
+store length of tmsg in mlen
+store reversed tmsg in rev
+show "trimmed={tmsg} upper={big} lower={small} len={mlen} rev={rev}"
+
+replace "Saral" with "Beautiful" in tmsg and store in replaced
+show "replaced: {replaced}"
+
+store "apple,banana,mango" in csvstr
+split csvstr by "," and store in fruitlist
+show "split list: {fruitlist}"
+
+join fruitlist with " | " and store in joined
+show "joined: {joined}"
+
+store "X" padded left to 6 in padl
+store "X" padded right to 6 in padr
+store "X" padded center to 7 in padc
+show "pads: [{padl}] [{padr}] [{padc}]"
+
+# ─────────────────────────────────────────────────────────────────
+# 9. TYPE CASTS
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 9. TYPE CASTS (as number/text/decimal/boolean) ────────────"
+
+store "123.45" as number in ncast
+store 99 as text in tcast
+store 3.1415 as decimal in dcast   # may be same as number in practice
+store "yes" as boolean in bcast
+show "casts: num={ncast} text={tcast} bool={bcast}"
+
+# ─────────────────────────────────────────────────────────────────
+# 10. OUTPUT VARIANTS (color, bold, blank, progress)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 10. COLORED OUTPUT + PROGRESS + BLANK ─────────────────────"
+
+show "This is red" in red
+show "This is green" in green
+show "This is bold" in bold
+show blank
+show "Progress test (5 steps):"
+count from 1 to 5 as p
+    show progress p of 5
+done
+show "Progress complete"
+
+# ─────────────────────────────────────────────────────────────────
+# 11. DATE / TIME
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 11. DATE & TIME ───────────────────────────────────────────"
+
+store today in d
+store current time in tm
+store current year in yr
+store current month in mo
+store current day in dy
+show "Today: {d}  Time: {tm}  Year: {yr} Month: {mo} Day: {dy}"
+
+# ─────────────────────────────────────────────────────────────────
+# 12. FILES (write, append, read, read lines, exists, delete)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 12. FILE I/O ──────────────────────────────────────────────"
+
+write "Line one from comprehensive test." to file "comp_test.txt"
+append "Line two appended." to file "comp_test.txt"
+read file "comp_test.txt" and store in fcontent
+show "File content:\n{fcontent}"
+
+read lines of "comp_test.txt" and store in flines
+show "Num lines read: {length of flines}"
+
+if file "comp_test.txt" exists
+    show "File exists check: YES"
+    delete file "comp_test.txt"
+    show "Deleted comp_test.txt"
+done
+
+# ─────────────────────────────────────────────────────────────────
+# 13. CSV full cycle + column
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 13. CSV ───────────────────────────────────────────────────"
+
+make list called sales
+make dictionary called r1
+set "item" of r1 to "Bread"
+set "qty" of r1 to "12"
+set "price" of r1 to "25"
+add r1 to sales
+
+make dictionary called r2
+set "item" of r2 to "Cake"
+set "qty" of r2 to "2"
+set "price" of r2 to "180"
+add r2 to sales
+
+write sales to csv "comp_sales.csv"
+read csv "comp_sales.csv" and store in loaded
+show "Loaded CSV: {loaded}"
+
+store column "item" of loaded in items_only
+show "Items column: {items_only}"
+
+if file "comp_sales.csv" exists
+    delete file "comp_sales.csv"
+done
+
+# ─────────────────────────────────────────────────────────────────
+# 14. JSON full cycle + convert + deep
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 14. JSON ──────────────────────────────────────────────────"
+
+make dictionary called cfg
+set "app" of cfg to "SaralKitchen"
+set "ver" of cfg to "1.0.1"
+set "features" of cfg to "many"
+
+write cfg to json "comp_cfg.json"
+read json "comp_cfg.json" and store in loaded_cfg
+store value of "app" in loaded_cfg in appname
+show "JSON app name: {appname}"
+
+convert cfg to json and store in jsonstr
+show "As JSON text: {jsonstr}"
+
+if file "comp_cfg.json" exists
+    delete file "comp_cfg.json"
+done
+
+# ─────────────────────────────────────────────────────────────────
+# 15. REGEX (matches, find, replace)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 15. REGEX ─────────────────────────────────────────────────"
+
+store "contact: user@example.com or info@saral.dev" in email_text
+if email_text matches pattern '[\w\.-]+@[\w\.-]+\.\w+'
+    show "Email pattern matched!" in green
+done
+
+find pattern "[0-9]+" in "Order 42 has 7 units" and store in numsfound
+show "Found numbers: {numsfound}"
+
+replace pattern "[0-9]+" with "XX" in "Item 123 cost 45" and store in redacted
+show "Redacted: {redacted}"
+
+# ─────────────────────────────────────────────────────────────────
+# 16. VALIDATION (email, phone, number, between, not empty)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 16. DATA VALIDATION ───────────────────────────────────────"
+
+store "asha@example.com" in em
+check that em is valid email and store in emok
+show "Email valid? {emok}"
+
+store "98765-43210" in ph
+check that ph is valid phone and store in phok
+show "Phone valid? {phok}"
+
+store "42" is a number and store in isnum   # note: check that form used in tests
+# Using check that form for consistency
+store 75 in marks
+check that marks is between 0 and 100 and store in inrange
+show "Between 0-100? {inrange}"
+
+store "hello" in nonemp
+check that nonemp is not empty and store in filled
+show "Not empty? {filled}"
+
+# ─────────────────────────────────────────────────────────────────
+# 17. ERROR HANDLING (try/catch, raise, show error)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 17. ERROR HANDLING (try/catch/raise/show error) ────────────"
+
+try
+    store 100 / 0 in boom
+catch
+    show "Caught division by zero (good)"
+    show error
+done
+
+try
+    raise error "Manual raised error for test"
+catch
+    show "Caught manually raised error"
+    show error
+done
+
+# ─────────────────────────────────────────────────────────────────
+# 18. MULTILINE TEXT BLOCK
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 18. MULTILINE TEXT BLOCK ──────────────────────────────────"
+
+store text block in letter
+Dear Tester,
+
+This is a preserved multiline text block.
+It keeps newlines and   spacing.
+
+Best,
+Saral Comprehensive Test
+end block
+
+show "Letter content:"
+show letter
+
+store length of letter in letterlen
+show "Letter length: {letterlen} chars"
+
+# ─────────────────────────────────────────────────────────────────
+# 19. CONCURRENCY (supported form: run named function in background)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 19. CONCURRENCY (run <fn> in background + wait for all) ───"
+
+define do_background_work using label
+    store "Work for {label} completed" in result
+    show "{result}"
+end
+
+run do_background_work in background with "TaskA"
+run do_background_work in background with "TaskB"
+wait for all
+show "All background work finished"
+
+# ─────────────────────────────────────────────────────────────────
+# 20. USE / IMPORT (as seen in engineering sample)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 20. USE STATEMENT ─────────────────────────────────────────"
+
+use math
+show "use math accepted (may be no-op or enable in some contexts)"
+
+# ─────────────────────────────────────────────────────────────────
+# 21. AI (will use pattern fallback or show unavailability)
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "── 21. AI (ask ai — expects graceful fallback without keys) ──"
+
+ask ai "What is 2 + 2 in one word?" and store in aianswer
+show "AI answer (or fallback): {aianswer}"
+
+# ─────────────────────────────────────────────────────────────────
+# FINAL
+# ─────────────────────────────────────────────────────────────────
+show blank
+show "═══════════════════════════════════════════════════════════════"
+show "  ✅ COMPREHENSIVE ALL-CAPABILITIES TEST COMPLETED SUCCESSFULLY"
+show "═══════════════════════════════════════════════════════════════"
+show blank
+show "If you see this without errors above, most of Saral's documented" 
+show "capabilities are working end-to-end in the v4.0 pipeline."
+show blank

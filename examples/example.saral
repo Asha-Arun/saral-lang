@@ -1,0 +1,46 @@
+# My first Saral program
+# This shows basic features of the language
+
+# --- Variables and Math ---
+store 10 in apples
+store 5 in oranges
+store apples + oranges in total
+show "Total fruits:"
+show total
+
+# --- Conditions ---
+if total > 12
+    show "That is a lot of fruit!"
+otherwise
+    show "That is a reasonable amount."
+done
+
+# --- Repeat loop ---
+show "Counting to 3:"
+repeat 3 times
+    show "hello"
+done
+
+# --- List ---
+make list called shopping
+add "bread" to shopping
+add "milk" to shopping
+add "eggs" to shopping
+show shopping
+
+# --- For each loop ---
+show "Shopping list items:"
+for each item in shopping
+    show item
+done
+
+# --- Function ---
+define greet using name
+    show "Welcome, " + name
+end
+
+call greet with "Arun"
+
+# --- User input (commented out for testing) ---
+# ask "What is your name?" and store in username
+# show "Hello " + username
