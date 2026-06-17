@@ -45,7 +45,7 @@ VERSION_NAME  = "First Public Release"   # release name
 
 BANNER = f"""
 ╔══════════════════════════════════════════════╗
-║   🌿  SARAL  v{VERSION}  "{VERSION_NAME}"  ║
+║   🌿  SARAL  v{VERSION}  "{VERSION_NAME}"    ║
 ║   Simple programming for everyone            ║
 ║   Write code the way you think               ║
 ╚══════════════════════════════════════════════╝
