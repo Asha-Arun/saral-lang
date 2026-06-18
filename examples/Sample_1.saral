@@ -1,0 +1,4 @@
+ask number "Enter the price: " and store in price
+store price * 2 in total
+show "Price you entered: {price}"
+show "Double the price: {total}"

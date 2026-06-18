@@ -1,0 +1,3 @@
+# Hello World in Saral Lang
+store "World" in name
+show "Hello, {name}!"
