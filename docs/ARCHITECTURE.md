@@ -124,7 +124,6 @@ export SARAL_GEMINI_KEY="AIza..."
 | **debugger.py** | Interactive debugger: step, breakpoints, watchpoints, AI fix |
 | **ai_helper.py** | AI calls, code generation, error fixing, explanation (4-tier fallback) |
 | **ai_config.py** | Detect provider from API key, test connectivity, save config |
-| **transpiler.py** | Legacy regex-based transpiler (kept for backward compatibility) |
 
 ---
 
