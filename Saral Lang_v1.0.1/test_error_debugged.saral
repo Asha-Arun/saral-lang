@@ -1,0 +1,15 @@
+# ── Debugged by Saral Debugger v1.1 ──────────────────────
+# Date     : 2026-06-19 15:58
+# Original : test_error.saral
+# Steps run: 4
+# Errors   : 1
+#   Line   5: ZeroDivisionError — division by zero
+# ────────────────────────────────────────────────────────
+
+# test_error.saral — deliberate runtime error for testing AI auto-debugger
+store 100 in total
+store 0 in count
+show "Total is " + total as text
+store total / count in average
+show "Average is " + average as text
+show "Done"
